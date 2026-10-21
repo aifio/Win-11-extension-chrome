@@ -1,55 +1,583 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta name="google-site-verification" content="M02CIBQDmV2T_0XVEUUjJXUqcW7gIJxuuPYwbG9hX0Q" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Windows 11 New Tab — Chrome Extension</title>
-  <meta name="description" content="Windows 11 style new tab page for Chrome, Edge and Brave." />
-  <meta property="og:title" content="Windows 11 New Tab" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="icon.png" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 11 New Tab / Releases</title>
+  <link href="icon.png" rel="icon">
+  <style>
+    :root {
+      --bg-main: #0b0e14;
+      --bg-card: #131722;
+      --border-color: #1e2433;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --accent-green: #2ea043;
+      --accent-green-hover: #3fb950;
+      --accent-blue: #58a6ff;
+      --badge-bg: rgba(46, 160, 67, 0.15);
+      --badge-text: #3fb950;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    body[dir="rtl"] {
+      font-family: Tahoma, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+      background: rgba(11, 14, 20, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .brand svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .brand b {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .brand span {
+      color: var(--text-muted);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .lang-btn:hover {
+      background: var(--bg-card);
+      border-color: #30363d;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 64px 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+
+    .badges {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      font-size: 0.8rem;
+    }
+
+    .badge-green {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(63, 185, 80, 0.3);
+      font-weight: 500;
+    }
+
+    .version-text {
+      color: var(--text-muted);
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p.lead {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      margin-bottom: 32px;
+    }
+
+    .cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .btn-download {
+      background-color: var(--accent-green);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(46, 160, 67, 0.25);
+    }
+
+    .btn-download:hover {
+      background-color: var(--accent-green-hover);
+      transform: translateY(-1px);
+    }
+
+    .zip-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .browsers-note {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* Preview Mockup Window */
+    .mockup-window {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+    }
+
+    .mockup-header {
+      background: #161b26;
+      padding: 12px 16px;
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+
+    .mockup-window img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 16 / 10;
+      background-color: #071936;
+    }
+
+    /* Features Bar */
+    .features-bar {
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+      margin-bottom: 56px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      list-style: none;
+    }
+
+    .features-bar li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .features-bar li::before {
+      content: "✓";
+      color: var(--accent-blue);
+      font-weight: bold;
+    }
+
+    /* Bottom Details Grid */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    .version-tag {
+      color: var(--accent-blue);
+      font-size: 0.8rem;
+      font-family: monospace;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .details-grid h2 {
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .details-grid p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .file-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      padding: 14px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--accent-blue);
+      font-size: 0.9rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .file-box:hover {
+      border-color: var(--accent-blue);
+      background: rgba(88, 166, 255, 0.05);
+    }
+
+    .file-box span:last-child {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .steps-list {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      padding-inline-start: 20px;
+      margin-bottom: 24px;
+    }
+
+    .steps-list li {
+      margin-bottom: 10px;
+    }
+
+    .steps-list b {
+      color: var(--text-main);
+    }
+
+    code {
+      background: #161b26;
+      border: 1px solid var(--border-color);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    .store-notice {
+      border-inline-start: 2px solid var(--accent-blue);
+      padding-inline-start: 12px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .disclaimer {
+      font-size: 0.75rem;
+      color: #586069;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero, .details-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .features-bar {
+        gap: 16px;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <header>
-    <div class="wrap bar">
-      <div class="brand"><div class="mark"><i></i><i></i><i></i><i></i></div><b dir="ltr">Windows 11 New Tab</b><span class="muted hide-sm">/ Releases</span></div>
-      <button id="langBtn" class="btn outline">🌐 <span id="langLabel">EN</span></button>
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- لوگوی نئونی و اختصاصی شما -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+          <defs>
+            <linearGradient id="neonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1d70fb" />
+              <stop offset="100%" stop-color="#b11bff" />
+            </linearGradient>
+            <linearGradient id="triangleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#93baff" />
+              <stop offset="100%" stop-color="#e1adff" />
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#neonGradient)" stroke-width="6" stroke-linejoin="round">
+            <rect x="18" y="18" width="38" height="38" rx="6" />
+            <rect x="64" y="18" width="38" height="38" rx="6" />
+            <rect x="18" y="64" width="38" height="38" rx="6" />
+            <rect x="64" y="64" width="38" height="38" rx="6" />
+          </g>
+          <path d="M 80 96 L 96 96 L 96 80 Z" fill="url(#triangleGradient)" stroke="url(#triangleGradient)" stroke-width="2" stroke-linejoin="round" />
+        </svg>
+        <b dir="ltr">Windows 11 New Tab</b>
+        <span data-i18n="releases">/ Releases</span>
+      </div>
+
+      <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">
+        <span>🌐</span>
+        <span id="langLabel">فا</span>
+      </button>
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="tags"><span class="pill" data-t="available"></span><span class="muted" data-t="release"></span></div>
+  <main class="container">
+    <!-- Hero Section -->
     <div class="hero">
       <div>
-        <h1 data-t="title"></h1>
-        <p class="muted lead" data-t="intro"></p>
-        <div class="row"><a class="btn primary" href="win11-newtab.zip" download>⬇ <span data-t="download"></span></a><span class="muted" data-t="fileType"></span></div>
-        <p class="muted" data-t="browser"></p>
+        <div class="badges">
+          <span class="badge-green" data-i18n="ready">Ready to download</span>
+          <span class="version-text" data-i18n="versionRelease">Version 1.8.0 release</span>
+        </div>
+        <h1 data-i18n="heroTitle">A new tab that feels like Windows 11.</h1>
+        <p class="lead" data-i18n="heroDesc">
+          Clock, date, quick search, a Start menu and your favorite sites in one place — now with settings, Google Sign-In personalization, and English support.
+        </p>
+        <div class="cta-group">
+          <a href="win11-newtab.zip" download class="btn-download">
+            <span>⬇</span>
+            <span data-i18n="downloadBtn">Download extension</span>
+          </a>
+          <span class="zip-label" data-i18n="zipFile">ZIP file</span>
+        </div>
+        <p class="browsers-note" data-i18n="browsers">For Chrome, Edge & Brave</p>
       </div>
-      <div class="preview"><div class="dots"><i></i><i></i><i></i></div><img src="wallpaper.jpg" alt="preview" /></div>
+
+      <div class="mockup-window">
+        <div class="mockup-header" dir="ltr">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+        </div>
+        <img src="wallpaper.jpg" alt="Windows 11 New Tab Preview">
+      </div>
     </div>
 
-    <ul class="features">
-      <li data-t="f1"></li><li data-t="f2"></li><li data-t="f3"></li><li data-t="f4"></li>
+    <!-- Features Bar -->
+    <ul class="features-bar">
+      <li data-i18n="feat1">English & Persian</li>
+      <li data-i18n="feat2">Solar or Gregorian calendar</li>
+      <li data-i18n="feat3">Choose search engine</li>
+      <li data-i18n="feat4">Settings panel & Google Sync</li>
     </ul>
 
-    <div class="cols">
+    <!-- Details & Installation -->
+    <div class="details-grid">
       <section>
-        <small class="ver" dir="ltr">v1.2.0</small>
-        <h2 data-t="notes"></h2>
-        <p class="muted" data-t="notesBody"></p>
-        <a class="asset" href="win11-newtab.zip" download><span dir="ltr">win11-newtab.zip</span><span class="muted">ZIP</span></a>
+        <small class="version-tag" dir="ltr">v1.8.0</small>
+        <h2 data-i18n="aboutTitle">About this release</h2>
+        <p data-i18n="aboutDesc">
+          This release adds a settings panel: language, search engine, calendar type, 24-hour clock, seconds, shortcuts visibility, wallpaper blur, and optional Google account sign-in to personalize your local profile experience.
+        </p>
+        <a href="win11-newtab.zip" download class="file-box" dir="ltr">
+          <span>win11-newtab.zip</span>
+          <span>ZIP</span>
+        </a>
       </section>
+
       <section>
-        <h2 data-t="install"></h2>
-        <ol id="steps"></ol>
-        <p class="note muted" data-t="note"></p>
+        <h2 data-i18n="installTitle">How to install</h2>
+        <ol class="steps-list">
+          <li data-i18n="step1">Download the ZIP file and extract it.</li>
+          <li data-i18n="step2">Open <code dir="ltr">chrome://extensions</code>.</li>
+          <li data-i18n="step3">Turn on <b>Developer mode</b>.</li>
+          <li data-i18n="step4">Click <b>Load unpacked</b> and pick the folder.</li>
+        </ol>
+        <p class="store-notice" data-i18n="storeNote">
+          This extension is not listed on the Chrome Web Store yet.
+        </p>
       </section>
     </div>
   </main>
-  <footer class="muted">Windows 11 New Tab · v1.2.0</footer>
-  <script src="app.js"></script>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <span>Windows 11 New Tab · v1.8.0</span>
+        <span>·</span>
+        <a href="privacy.html" data-i18n="privacyLink">Privacy Policy</a>
+        <span>·</span>
+        <a href="mailto:phoenixofhadi@gmail.com" data-i18n="contactLink">Contact Developer</a>
+      </div>
+      <p class="disclaimer" data-i18n="disclaimer">
+        This is an independent, unofficial custom browser extension developed by aifio and is not affiliated with, endorsed by, or connected to Microsoft Corporation.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        releases: "/ Releases",
+        ready: "Ready to download",
+        versionRelease: "Version 1.8.0 release",
+        heroTitle: "A new tab that feels like Windows 11.",
+        heroDesc: "Clock, date, quick search, a Start menu and your favorite sites in one place — now with settings, Google Sign-In personalization, and English support.",
+        downloadBtn: "Download extension",
+        zipFile: "ZIP file",
+        browsers: "For Chrome, Edge & Brave",
+        feat1: "English & Persian",
+        feat2: "Solar or Gregorian calendar",
+        feat3: "Choose search engine",
+        feat4: "Settings panel & Google Sync",
+        aboutTitle: "About this release",
+        aboutDesc: "This release adds a settings panel: language, search engine, calendar type, 24-hour clock, seconds, shortcuts visibility, wallpaper blur, and optional Google account sign-in to personalize your local profile experience.",
+        installTitle: "How to install",
+        step1: "Download the ZIP file and extract it.",
+        step2: "Open <code dir='ltr'>chrome://extensions</code>.",
+        step3: "Turn on <b>Developer mode</b>.",
+        step4: "Click <b>Load unpacked</b> and pick the folder.",
+        storeNote: "This extension is not listed on the Chrome Web Store yet.",
+        privacyLink: "Privacy Policy",
+        contactLink: "Contact Developer",
+        disclaimer: "This is an independent, unofficial custom browser extension developed by aifio and is not affiliated with, endorsed by, or connected to Microsoft Corporation."
+      },
+      fa: {
+        releases: "/ نسخه‌ها",
+        ready: "آماده دانلود",
+        versionRelease: "نسخه 1.8.0",
+        heroTitle: "تب جدیدی با حس و حال ویندوز ۱۱.",
+        heroDesc: "ساعت، تاریخ، جستجوی سریع، منوی استارت و سایت‌های محبوب شما در یک جا — اکنون با پنل تنظیمات، شخصی‌سازی با حساب گوگل و پشتیبانی از زبان انگلیسی و فارسی.",
+        downloadBtn: "دانلود افزونه",
+        zipFile: "فایل ZIP",
+        browsers: "مناسب برای مرورگرهای Chrome، Edge و Brave",
+        feat1: "فارسی و انگلیسی",
+        feat2: "تقویم شمسی و میلادی",
+        feat3: "انتخاب موتور جستجو",
+        feat4: "پنل تنظیمات و ورود با گوگل",
+        aboutTitle: "درباره این نسخه",
+        aboutDesc: "در این نسخه پنل تنظیمات اضافه شده است: تغییر زبان، موتور جستجو، نوع تقویم، ساعت ۲۴ ساعته، نمایش ثانیه، مدیریت میانبرها، تاری پس‌زمینه و امکان ورود با حساب گوگل جهت شخصی‌سازی محیط کاربری.",
+        installTitle: "راهنمای نصب",
+        step1: "فایل ZIP را دانلود و از حالت فشرده خارج کنید.",
+        step2: "آدرس <code dir='ltr'>chrome://extensions</code> را در مرورگر باز کنید.",
+        step3: "گزینه <b>Developer mode</b> را از بالا فعال کنید.",
+        step4: "روی <b>Load unpacked</b> کلیک کرده و پوشه استخراج‌شده را انتخاب کنید.",
+        storeNote: "این افزونه هنوز در فروشگاه وب کروم ثبت نشده است.",
+        privacyLink: "سیاست حریم خصوصی (Privacy Policy)",
+        contactLink: "ارتباط با سازنده",
+        disclaimer: "این یک افزونه مرورگر مستقل و غیررسمی است که توسط aifio توسعه یافته و هیچ‌گونه وابستگی یا ارتباطی با شرکت مایکروسافت (Microsoft) ندارد."
+      }
+    };
+
+    let currentLang = 'en';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'fa' : 'en';
+      document.documentElement.lang = currentLang;
+      document.body.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
+      document.getElementById('langLabel').textContent = currentLang === 'en' ? 'فا' : 'EN';
+
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
+    }
+  </script>
 </body>
 </html>
