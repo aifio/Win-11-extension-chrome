@@ -1,0 +1,562 @@
+{
+ "version": 1,
+ "updated": "2026-10-20",
+ "categories": [
+  {
+   "id": "ai",
+   "fa": "هوش مصنوعی",
+   "en": "AI",
+   "icon": "✨",
+   "sites": [
+    {
+     "n": "ChatGPT",
+     "u": "https://chatgpt.com",
+     "fa": "دستیار گفتگوی OpenAI",
+     "en": "OpenAI chat assistant"
+    },
+    {
+     "n": "Claude",
+     "u": "https://claude.ai",
+     "fa": "دستیار هوش مصنوعی Anthropic",
+     "en": "Anthropic AI assistant"
+    },
+    {
+     "n": "Gemini",
+     "u": "https://gemini.google.com",
+     "fa": "هوش مصنوعی گوگل",
+     "en": "Google AI assistant"
+    },
+    {
+     "n": "Perplexity",
+     "u": "https://www.perplexity.ai",
+     "fa": "جستجوی هوشمند همراه با منبع",
+     "en": "AI search with sources"
+    },
+    {
+     "n": "Copilot",
+     "u": "https://copilot.microsoft.com",
+     "fa": "دستیار مایکروسافت",
+     "en": "Microsoft assistant"
+    },
+    {
+     "n": "DeepSeek",
+     "u": "https://chat.deepseek.com",
+     "fa": "چت‌بات DeepSeek",
+     "en": "DeepSeek chat"
+    },
+    {
+     "n": "Hugging Face",
+     "u": "https://huggingface.co",
+     "fa": "مدل‌ها و ابزارهای هوش مصنوعی",
+     "en": "Models and AI tools"
+    }
+   ]
+  },
+  {
+   "id": "google",
+   "fa": "سرویس‌های گوگل",
+   "en": "Google",
+   "icon": "🔎",
+   "sites": [
+    {
+     "n": "Gmail",
+     "u": "https://mail.google.com",
+     "fa": "ایمیل",
+     "en": "Email"
+    },
+    {
+     "n": "Google Maps",
+     "u": "https://maps.google.com",
+     "fa": "نقشه و مسیریابی",
+     "en": "Maps and directions"
+    },
+    {
+     "n": "Google Translate",
+     "u": "https://translate.google.com",
+     "fa": "ترجمهٔ متن و وب‌سایت",
+     "en": "Translate text and sites"
+    },
+    {
+     "n": "Google Drive",
+     "u": "https://drive.google.com",
+     "fa": "فضای ابری",
+     "en": "Cloud storage"
+    },
+    {
+     "n": "Google Docs",
+     "u": "https://docs.google.com/document/",
+     "fa": "ویرایشگر متن آنلاین",
+     "en": "Online documents"
+    },
+    {
+     "n": "Google Sheets",
+     "u": "https://docs.google.com/spreadsheets/",
+     "fa": "صفحه‌گسترده آنلاین",
+     "en": "Online spreadsheets"
+    },
+    {
+     "n": "Google Calendar",
+     "u": "https://calendar.google.com",
+     "fa": "تقویم",
+     "en": "Calendar"
+    },
+    {
+     "n": "Google Photos",
+     "u": "https://photos.google.com",
+     "fa": "عکس‌ها",
+     "en": "Photos"
+    },
+    {
+     "n": "Google Meet",
+     "u": "https://meet.google.com",
+     "fa": "تماس تصویری",
+     "en": "Video calls"
+    },
+    {
+     "n": "Google Keep",
+     "u": "https://keep.google.com",
+     "fa": "یادداشت",
+     "en": "Notes"
+    },
+    {
+     "n": "Google Scholar",
+     "u": "https://scholar.google.com",
+     "fa": "جستجوی مقالات علمی",
+     "en": "Scholarly articles"
+    }
+   ]
+  },
+  {
+   "id": "lang",
+   "fa": "ترجمه و زبان",
+   "en": "Translate & language",
+   "icon": "🌐",
+   "sites": [
+    {
+     "n": "DeepL",
+     "u": "https://www.deepl.com/translator",
+     "fa": "ترجمهٔ دقیق",
+     "en": "Accurate translation"
+    },
+    {
+     "n": "Reverso Context",
+     "u": "https://context.reverso.net",
+     "fa": "ترجمه با مثال و بافت",
+     "en": "Translation in context"
+    },
+    {
+     "n": "Cambridge Dictionary",
+     "u": "https://dictionary.cambridge.org",
+     "fa": "دیکشنری انگلیسی",
+     "en": "English dictionary"
+    },
+    {
+     "n": "واژه‌یاب",
+     "u": "https://vajehyab.com",
+     "fa": "دیکشنری فارسی",
+     "en": "Persian dictionary"
+    },
+    {
+     "n": "لغت‌نامه دهخدا",
+     "u": "https://dehkhoda.ut.ac.ir",
+     "fa": "فرهنگ لغت دهخدا",
+     "en": "Dehkhoda dictionary"
+    },
+    {
+     "n": "Duolingo",
+     "u": "https://www.duolingo.com",
+     "fa": "یادگیری زبان",
+     "en": "Learn languages"
+    }
+   ]
+  },
+  {
+   "id": "media",
+   "fa": "ویدیو و موسیقی",
+   "en": "Video & music",
+   "icon": "🎬",
+   "sites": [
+    {
+     "n": "YouTube",
+     "u": "https://www.youtube.com",
+     "fa": "ویدیو",
+     "en": "Video"
+    },
+    {
+     "n": "YouTube Music",
+     "u": "https://music.youtube.com",
+     "fa": "موسیقی",
+     "en": "Music"
+    },
+    {
+     "n": "آپارات",
+     "u": "https://www.aparat.com",
+     "fa": "ویدیوی فارسی",
+     "en": "Persian video"
+    },
+    {
+     "n": "Spotify",
+     "u": "https://open.spotify.com",
+     "fa": "موسیقی و پادکست",
+     "en": "Music and podcasts"
+    },
+    {
+     "n": "SoundCloud",
+     "u": "https://soundcloud.com",
+     "fa": "موسیقی مستقل",
+     "en": "Independent music"
+    },
+    {
+     "n": "Netflix",
+     "u": "https://www.netflix.com",
+     "fa": "فیلم و سریال",
+     "en": "Movies and series"
+    },
+    {
+     "n": "Twitch",
+     "u": "https://www.twitch.tv",
+     "fa": "پخش زنده",
+     "en": "Live streaming"
+    }
+   ]
+  },
+  {
+   "id": "social",
+   "fa": "شبکه‌های اجتماعی",
+   "en": "Social",
+   "icon": "💬",
+   "sites": [
+    {
+     "n": "Instagram",
+     "u": "https://www.instagram.com",
+     "fa": "",
+     "en": ""
+    },
+    {
+     "n": "X",
+     "u": "https://x.com",
+     "fa": "",
+     "en": "Twitter"
+    },
+    {
+     "n": "Telegram",
+     "u": "https://web.telegram.org/a/",
+     "fa": "تلگرام وب",
+     "en": "Telegram Web"
+    },
+    {
+     "n": "WhatsApp",
+     "u": "https://web.whatsapp.com",
+     "fa": "واتس‌اپ وب",
+     "en": "WhatsApp Web"
+    },
+    {
+     "n": "LinkedIn",
+     "u": "https://www.linkedin.com",
+     "fa": "شبکهٔ حرفه‌ای",
+     "en": "Professional network"
+    },
+    {
+     "n": "Reddit",
+     "u": "https://www.reddit.com",
+     "fa": "انجمن‌ها",
+     "en": "Communities"
+    },
+    {
+     "n": "Discord",
+     "u": "https://discord.com/app",
+     "fa": "گفتگو و گروه",
+     "en": "Chat and communities"
+    },
+    {
+     "n": "Pinterest",
+     "u": "https://www.pinterest.com",
+     "fa": "ایده و تصویر",
+     "en": "Ideas and images"
+    }
+   ]
+  },
+  {
+   "id": "dev",
+   "fa": "برنامه‌نویسی",
+   "en": "Development",
+   "icon": "💻",
+   "sites": [
+    {
+     "n": "GitHub",
+     "u": "https://github.com",
+     "fa": "کد و پروژه‌ها",
+     "en": "Code and projects"
+    },
+    {
+     "n": "Stack Overflow",
+     "u": "https://stackoverflow.com",
+     "fa": "پرسش و پاسخ برنامه‌نویسی",
+     "en": "Programming Q&A"
+    },
+    {
+     "n": "MDN Web Docs",
+     "u": "https://developer.mozilla.org",
+     "fa": "مرجع وب",
+     "en": "Web reference"
+    },
+    {
+     "n": "CodePen",
+     "u": "https://codepen.io",
+     "fa": "آزمایش کد فرانت‌اند",
+     "en": "Front-end playground"
+    },
+    {
+     "n": "npm",
+     "u": "https://www.npmjs.com",
+     "fa": "پکیج‌های جاوااسکریپت",
+     "en": "JavaScript packages"
+    },
+    {
+     "n": "Can I use",
+     "u": "https://caniuse.com",
+     "fa": "پشتیبانی مرورگرها",
+     "en": "Browser support"
+    },
+    {
+     "n": "regex101",
+     "u": "https://regex101.com",
+     "fa": "تست عبارت منظم",
+     "en": "Regex tester"
+    }
+   ]
+  },
+  {
+   "id": "design",
+   "fa": "طراحی و تصویر",
+   "en": "Design & images",
+   "icon": "🎨",
+   "sites": [
+    {
+     "n": "Figma",
+     "u": "https://www.figma.com",
+     "fa": "طراحی رابط کاربری",
+     "en": "UI design"
+    },
+    {
+     "n": "Canva",
+     "u": "https://www.canva.com",
+     "fa": "طراحی گرافیکی ساده",
+     "en": "Easy graphic design"
+    },
+    {
+     "n": "Unsplash",
+     "u": "https://unsplash.com",
+     "fa": "عکس رایگان",
+     "en": "Free photos"
+    },
+    {
+     "n": "Pexels",
+     "u": "https://www.pexels.com",
+     "fa": "عکس و ویدیوی رایگان",
+     "en": "Free photos and videos"
+    },
+    {
+     "n": "Coolors",
+     "u": "https://coolors.co",
+     "fa": "ساخت پالت رنگ",
+     "en": "Color palettes"
+    },
+    {
+     "n": "Flaticon",
+     "u": "https://www.flaticon.com",
+     "fa": "آیکون",
+     "en": "Icons"
+    },
+    {
+     "n": "remove.bg",
+     "u": "https://www.remove.bg",
+     "fa": "حذف پس‌زمینهٔ عکس",
+     "en": "Remove image background"
+    },
+    {
+     "n": "Photopea",
+     "u": "https://www.photopea.com",
+     "fa": "ویرایشگر عکس آنلاین",
+     "en": "Online photo editor"
+    }
+   ]
+  },
+  {
+   "id": "tools",
+   "fa": "ابزارهای آنلاین",
+   "en": "Online tools",
+   "icon": "🧰",
+   "sites": [
+    {
+     "n": "iLovePDF",
+     "u": "https://www.ilovepdf.com",
+     "fa": "ابزارهای PDF",
+     "en": "PDF tools"
+    },
+    {
+     "n": "TinyPNG",
+     "u": "https://tinypng.com",
+     "fa": "کم‌حجم کردن عکس",
+     "en": "Compress images"
+    },
+    {
+     "n": "Speedtest",
+     "u": "https://www.speedtest.net",
+     "fa": "تست سرعت اینترنت",
+     "en": "Internet speed test"
+    },
+    {
+     "n": "Wayback Machine",
+     "u": "https://web.archive.org",
+     "fa": "آرشیو وب‌سایت‌ها",
+     "en": "Website archive"
+    },
+    {
+     "n": "Wolfram Alpha",
+     "u": "https://www.wolframalpha.com",
+     "fa": "محاسبات و دانش",
+     "en": "Computation and knowledge"
+    },
+    {
+     "n": "Time and Date",
+     "u": "https://www.timeanddate.com",
+     "fa": "ساعت و تقویم جهانی",
+     "en": "World time and calendars"
+    },
+    {
+     "n": "Convertio",
+     "u": "https://convertio.co",
+     "fa": "تبدیل فرمت فایل",
+     "en": "File converter"
+    }
+   ]
+  },
+  {
+   "id": "learn",
+   "fa": "آموزش و دانش",
+   "en": "Learning",
+   "icon": "📚",
+   "sites": [
+    {
+     "n": "Wikipedia",
+     "u": "https://www.wikipedia.org",
+     "fa": "دانشنامه",
+     "en": "Encyclopedia"
+    },
+    {
+     "n": "Khan Academy",
+     "u": "https://www.khanacademy.org",
+     "fa": "آموزش رایگان",
+     "en": "Free lessons"
+    },
+    {
+     "n": "Coursera",
+     "u": "https://www.coursera.org",
+     "fa": "دوره‌های دانشگاهی",
+     "en": "University courses"
+    },
+    {
+     "n": "edX",
+     "u": "https://www.edx.org",
+     "fa": "دوره‌های آنلاین",
+     "en": "Online courses"
+    },
+    {
+     "n": "Udemy",
+     "u": "https://www.udemy.com",
+     "fa": "دوره‌های مهارتی",
+     "en": "Skill courses"
+    },
+    {
+     "n": "Internet Archive",
+     "u": "https://archive.org",
+     "fa": "کتاب و رسانهٔ آزاد",
+     "en": "Free books and media"
+    }
+   ]
+  },
+  {
+   "id": "shop",
+   "fa": "خرید",
+   "en": "Shopping",
+   "icon": "🛒",
+   "sites": [
+    {
+     "n": "دیجی‌کالا",
+     "u": "https://www.digikala.com",
+     "fa": "فروشگاه آنلاین",
+     "en": "Online store"
+    },
+    {
+     "n": "دیوار",
+     "u": "https://divar.ir",
+     "fa": "آگهی",
+     "en": "Classifieds"
+    },
+    {
+     "n": "ترب",
+     "u": "https://torob.com",
+     "fa": "مقایسهٔ قیمت",
+     "en": "Price comparison"
+    },
+    {
+     "n": "اسنپ",
+     "u": "https://snapp.ir",
+     "fa": "سفر و سفارش",
+     "en": "Rides and orders"
+    },
+    {
+     "n": "Amazon",
+     "u": "https://www.amazon.com",
+     "fa": "",
+     "en": "Online store"
+    },
+    {
+     "n": "AliExpress",
+     "u": "https://www.aliexpress.com",
+     "fa": "",
+     "en": "Online store"
+    }
+   ]
+  },
+  {
+   "id": "news",
+   "fa": "اخبار",
+   "en": "News",
+   "icon": "📰",
+   "sites": [
+    {
+     "n": "BBC",
+     "u": "https://www.bbc.com",
+     "fa": "",
+     "en": "World news"
+    },
+    {
+     "n": "BBC فارسی",
+     "u": "https://www.bbc.com/persian",
+     "fa": "اخبار فارسی",
+     "en": "Persian news"
+    },
+    {
+     "n": "Reuters",
+     "u": "https://www.reuters.com",
+     "fa": "",
+     "en": "World news"
+    },
+    {
+     "n": "Hacker News",
+     "u": "https://news.ycombinator.com",
+     "fa": "اخبار فناوری",
+     "en": "Tech news"
+    },
+    {
+     "n": "زومیت",
+     "u": "https://www.zoomit.ir",
+     "fa": "اخبار فناوری فارسی",
+     "en": "Persian tech news"
+    }
+   ]
+  }
+ ]
+}
